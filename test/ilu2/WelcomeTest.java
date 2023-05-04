@@ -10,11 +10,10 @@ class WelcomeTest {
 	@BeforeEach
 	public void init()
 	{
-		System.out.println("Debut test ");
+		System.out.println("Debut test \n");
 	}
 	@Test
 	void test1() {
-		//fail("Not yet implemented");
 		assertEquals(Welcome.welcome("bob"),"Hello,Bob");
 		System.out.println("Test 1 OK");
 	}
@@ -23,6 +22,14 @@ class WelcomeTest {
 		assertEquals(Welcome.welcome("bob"),"Hello,Bob");
 		assertEquals(Welcome.welcome(" "),"Hello,my friend");
 		assertEquals(Welcome.welcome("  "),"Hello,my friend");
+		System.out.println("Test 2 OK");
 	}
+	
+	@Test
+	void test3() {
+		assertEquals(Welcome.welcome("JERRY"),"HELLO,JERRY");
+		System.out.println("Test 3 OK");
+	}
+	
 
 }

@@ -4,34 +4,40 @@ public class Welcome {
 	
 	
 	public static String welcome(String input) {
-		System.out.println(input.trim());
 		StringBuilder res = new StringBuilder();
-		res.append("Hello,");
-		if(input.equals("bob"))
-			res.append("Bob");
-		
 		if(isempty(input))
 		{
+			res.append("Hello,");
 			res.append("my friend");
+			return res.toString();
 		}
-		input = input.trim().replaceAll("\\s+", " ");
+		input= input.trim().replaceAll("\\s+", " ");
+		if (maj(input))
+		{
+			res.append("HELLO,");
+			res.append(input);
+		}
+		else
+		{
+			res.append("Hello,");
+		}
+		if(input.equals("bob"))
+		{
+			res.append("Bob");
+		}
 		return res.toString();
 	}
 	
-	/*private static boolean iscar(String car)
-	{
-		boolean res=false;
-		if((car.equals(" "))||(car.equals(null)))
-		{
-			res=true;
-		}
-		return res;
-	}*/
+	
 	public static boolean isempty(String input) {
 		boolean res=false;
-		if (input.equals(" ") || input==null || input.equals("  ")) {
+		if (input.equals(" ") || input.equals("  ")) {
 			res=true;
 		}
 		return res;
+	}
+	public static boolean maj(String input)
+	{
+		return input.equals(input.toUpperCase());
 	}
 }
