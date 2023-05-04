@@ -31,5 +31,13 @@ class WelcomeTest {
 		System.out.println("Test 3 OK");
 	}
 	
+	@Test
+	void test4() {
+		assertEquals(Welcome.welcome("Amy,Bob"),"Hello,Amy,Bob");
+		assertEquals(Welcome.welcome("amy,bob"),"Hello,Amy,Bob");
+		System.out.println("Test 4 OK");
+	}
+		
 
 }
+
