@@ -1,8 +1,6 @@
 package ilu2;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class WelcomeTest {
@@ -27,15 +25,22 @@ class WelcomeTest {
 	
 	@Test
 	void test4() {
-		assertEquals(Welcome.welcome("Amy,Bob"),"Hello, Amy, Bob");
-		assertEquals(Welcome.welcome("amy,bob"),"Hello, Amy, Bob");
+		assertEquals(Welcome.welcome("Amy,Bob"),"Hello,Amy,Bob");
+		assertEquals(Welcome.welcome("amy,bob"),"Hello,Amy,Bob");
 		System.out.println("Test 4 OK");
 	}
 	@Test
 	void test5() {
-		assertEquals(Welcome.welcome("Amy,bob,Jerry"),"Hello, Amy, Bob, Jerry");
-		assertEquals(Welcome.welcome("amy,Bob,jerry,Tom,bambi"),"Hello, Amy, Bob, Jerry, Tom, Bambi");
+		assertEquals(Welcome.welcome("Amy,bob,Jerry"),"Hello,Amy,Bob,Jerry");
+		assertEquals(Welcome.welcome("amy,Bob,jerry,Tom,bambi"),"Hello,Amy,Bob,Jerry,Tom,Bambi");
 		System.out.println("Test 5 OK");
+	}
+	
+	@Test
+	void test6() {
+		assertEquals(Welcome.welcome("Amy,BOB,Jerry"),"Hello,Amy,Jerry.AND HELLO,BOB !");
+		assertEquals(Welcome.welcome("Amy,BOB,TOM,Jerry"),"Hello,Amy,Jerry.AND HELLO,BOB,TOM !");
+		System.out.println("Test 6 OK");
 	}
 		
 

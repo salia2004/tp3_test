@@ -5,12 +5,13 @@ public class Welcome {
 	
 	public static String welcome(String input) {
 		StringBuilder res = new StringBuilder();
-		if(isempty(input))
-		{
+		StringBuilder maj= new StringBuilder();
+		maj.append(".AND HELLO");
+		if(isempty(input)){
 			res.append("Hello,");
 			res.append("my friend");
-			return res.toString();
-		}
+			return res.toString();}
+		input = input.trim().replaceAll("\\s+", " ");///suppression des espaces inutiles
 		String[] List = input.split(",");//list de nom
 			if (List.length==1) 
 			{//un seul nom
@@ -24,13 +25,26 @@ public class Welcome {
 				}
 			else//plusieru nom 
 			{
+				boolean x=false;
 				res.append("Hello");
-				for (int i=0;i<(List.length);i++) {
-					String add=trans(List[i]);
-					res.append(", ");
-					res.append(add);
-					}
-			}
+				for (int i=0;i<(List.length);i++) 
+				{
+					if(maj(List[i])) //majuscule
+					{
+						x=true;
+						maj.append(",");
+						maj.append(List[i]);
+						}
+					else{
+						String add=trans(List[i]);
+						res.append(",");
+						res.append(add);}
+				}
+				if(x){
+					maj.append(" ");
+					maj.append("!");
+					res.append(maj);}}
+			System.out.println(res.toString());
 		return res.toString();
 	}
 	
