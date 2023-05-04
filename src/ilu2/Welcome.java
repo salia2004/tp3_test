@@ -26,9 +26,8 @@ public class Welcome {
 			{
 				res.append("Hello");
 				for (int i=0;i<(List.length);i++) {
-					System.out.println(List[i]);
-					String add=List[i].substring(0,1).toUpperCase()+List[i].subSequence(1,List[i].length());
-					res.append(",");
+					String add=trans(List[i]);
+					res.append(", ");
 					res.append(add);
 					}
 			}
@@ -46,5 +45,9 @@ public class Welcome {
 	public static boolean maj(String input)
 	{
 		return input.equals(input.toUpperCase());
+	}
+	public static String trans(String input)
+	{
+		return input.substring(0,1).toUpperCase()+input.subSequence(1,input.length());
 	}
 }
