@@ -20,11 +20,9 @@ public class Welcome {
 			{
 				if (maj(List[0]))
 				{
-					res.replace(0, 5,"HELLO");
-					res.append(",");
+					res.replace(0, 5,"HELLO,");
 					res.append(input);
-					res.append(" ");
-					res.append("!");
+					res.append(" !");
 				}
 				else
 				{
@@ -35,32 +33,47 @@ public class Welcome {
 			{
 				if(ismay(List))//si il y a des majuscule
 				{
-					for (int i=0;i<(List.length)-1;i++) 
+					int nbmaj=comptemaj(List);
+					String derniermaj =null;
+					String derniermin=null;
+					int nbmin=List.length-nbmaj;
+					System.out.println(nbmaj);
+					System.out.println(nbmin);
+					for (int i=0;i<(List.length);i++) 
 					{
 						if(maj(List[i]))
 						{
-							maj.append(",");
-							maj.append(List[i]);
+							if(nbmaj!=1)
+							{
+								maj.append(",");
+								maj.append(List[i]);
+								nbmaj--;
+							}
+							else
+							{
+								derniermaj=List[i];
+							}
 						}
 						else
 						{
-							String add=trans(List[i]);
-							res.append(",");
-							res.append(add);
+							if(nbmin!=1)
+							{
+								String add=trans(List[i]);
+								res.append(",");
+								res.append(add);
+								nbmin--;
+							}
+							else
+							{
+								derniermin=List[i];
+							}
 						}
 					}
-					if(maj(List[(List.length)-1]))
-					{
-						maj.append(" AND ");
-						maj.append(List[(List.length)-1]);
-					}
-					else
-					{
-						String add=trans(List[(List.length)-1]);
-						res.append(",");
-						res.append(add);
-					}
+					maj.append(" AND ");
+					maj.append(derniermaj);
 					maj.append(" !");
+					res.append(" and ");
+					res.append(trans(derniermin));
 					res.append(maj);
 				}
 				else//il n'y a pas de majuscule 
@@ -103,6 +116,7 @@ public class Welcome {
 	}
 	public static String trans(String input)
 	{
+		System.out.println(input);
 		return input.substring(0,1).toUpperCase()+input.subSequence(1,input.length());
 	}
 	
@@ -117,5 +131,15 @@ public class Welcome {
 			}
 		}
 		return x;
+	}
+	public static int comptemaj(String[] l)
+	{
+		int x=0;
+		for (int i=0;i<(l.length);i++) 
+		{
+			if(maj(l[i])){
+				x++;
+			}}
+	return x;
 	}
 }
