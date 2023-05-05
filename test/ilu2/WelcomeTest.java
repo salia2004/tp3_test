@@ -38,11 +38,11 @@ class WelcomeTest {
 	
 	////Test 5 en contradiction avec le iter 7 du coup il fonctionnais bien avant mais je l'ai mise en commentaire pour faire le 7
 	
-	/*@Test
+	@Test
 	void test6() {
-		assertEquals(Welcome.welcome("Amy,BOB,Jerry"),"Hello,Amy,Jerry.AND HELLO,BOB !");
+		assertEquals(Welcome.welcome("Amy,BOB,Jerry"),"Hello,Amy and Jerry.AND HELLO AND BOB !");
 		System.out.println("Test 6 OK");
-	}*/
+	}
 	@Test
 	void test7() {
 		assertEquals(Welcome.welcome("bob,amy,jerry"),"Hello,Bob,Amy and Jerry");
@@ -57,6 +57,13 @@ class WelcomeTest {
 		assertEquals(Welcome.welcome("bob ,    amy "),"Hello,Bob,Amy");
 		System.out.println("Test 8 OK");
 	}
+	
+	/*@Test
+	void test9()
+	{
+		assertEquals(Welcome.welcome("bob, JERRY, amy, bob, JERRY, bob"),"Hello, Bob (x3) and Amy. AND HELLO, JERRY (x2) !");
+	}*/
+	
 	
 	
 }

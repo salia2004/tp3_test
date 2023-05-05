@@ -30,78 +30,78 @@ public class Welcome {
 					res.append(trans(List[0]));}
 			}
 			else
-			{
-				if(ismay(List))//si il y a des majuscule
-				{
-					int nbmaj=comptemaj(List);
-					String derniermaj =null;
-					String derniermin=null;
-					int nbmin=List.length-nbmaj;
-					System.out.println(nbmaj);
-					System.out.println(nbmin);
-					for (int i=0;i<(List.length);i++) 
+			{		
+					if(ismay(List))//si il y a des majuscule
 					{
-						if(maj(List[i]))
-						{
-							if(nbmaj!=1)
-							{
-								maj.append(",");
-								maj.append(List[i]);
-								nbmaj--;
-							}
-							else
-							{
-								derniermaj=List[i];
-							}
-						}
-						else
-						{
-							if(nbmin!=1)
-							{
-								String add=trans(List[i]);
-								res.append(",");
-								res.append(add);
-								nbmin--;
-							}
-							else
-							{
-								derniermin=List[i];
-							}
-						}
-					}
-					maj.append(" AND ");
-					maj.append(derniermaj);
-					maj.append(" !");
-					res.append(" and ");
-					res.append(trans(derniermin));
-					res.append(maj);
-				}
-				else//il n'y a pas de majuscule 
-				{
-					if(List.length==2)//cas 4 2 nom 
-					{
+						int nbmaj=comptemaj(List);
+						String derniermaj =null;
+						String derniermin=null;
+						int nbmin=List.length-nbmaj;
+						System.out.println(nbmaj);
+						System.out.println(nbmin);
 						for (int i=0;i<(List.length);i++) 
 						{
-								String add=trans(List[i]);
-								res.append(",");
-								res.append(add);
+							if(maj(List[i]))
+							{
+								if(nbmaj!=1)
+								{
+									maj.append(",");
+									maj.append(List[i]);
+									nbmaj--;
+								}
+								else
+								{
+									derniermaj=List[i];
+								}
+							}
+							else
+							{
+								if(nbmin!=1)
+								{
+									String add=trans(List[i]);
+									res.append(",");
+									res.append(add);
+									nbmin--;
+								}
+								else
+								{
+									derniermin=List[i];
+								}
+							}
 						}
-					}
-					else//cas pas de maj et plus que deux 
-					{
-						for (int i=0;i<(List.length)-1;i++) 
-						{
-								String add=trans(List[i]);
-								res.append(",");
-								res.append(add);
-						}
+						maj.append(" AND ");
+						maj.append(derniermaj);
+						maj.append(" !");
 						res.append(" and ");
-						res.append(trans(List[(List.length)-1]));
+						res.append(trans(derniermin));
+						res.append(maj);
+					 }
+					else//il n'y a pas de majuscule 
+					{
+						if(List.length==2)//cas 4 2 nom 
+						{
+							for (int i=0;i<(List.length);i++) 
+							{
+									String add=trans(List[i]);
+									res.append(",");
+									res.append(add);
+							}
+						}
+						else//cas pas de maj et plus que deux 
+						{
+							for (int i=0;i<(List.length)-1;i++) 
+							{
+									String add=trans(List[i]);
+									res.append(",");
+									res.append(add);
+							}
+							res.append(" and ");
+							res.append(trans(List[(List.length)-1]));
+						}
 					}
-				}
-			}//fin petit else
-		}//fin grand else 
+		   }
 		System.out.println(res.toString());
+		}//fin grand else 
 		return res.toString();
 	}
 	
@@ -142,4 +142,5 @@ public class Welcome {
 			}}
 	return x;
 	}
+	
 }
